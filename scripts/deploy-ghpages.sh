@@ -19,6 +19,8 @@ echo "four"
 
 siteSource="$1"
 echo "five"
+echo "siteSource"
+echo siteSource
 if [ ! -d "$siteSource" ]
 then
     echo "Usage: $0 <site source dir>"
