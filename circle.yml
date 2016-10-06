@@ -2,4 +2,4 @@ deployment:
   production:
     branch: master
     commands:
-    - ./scripts/deploy-ghpages.sh build
+    - bash -x ./scripts/deploy-ghpages.sh build
