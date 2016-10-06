@@ -1,7 +1,11 @@
 #!/bin/sh
 # ideas used from https://gist.github.com/motemen/8595451
 
+# From https://github.com/eldarlabs/ghpages-deploy-script/blob/master/scripts/deploy-ghpages.sh
+# Used with their MIT license https://github.com/eldarlabs/ghpages-deploy-script/blob/master/LICENSE
 # abort the script if there is a non-zero error
+
+echo "one"
 set -e
 
 # show where we are on the machine
@@ -26,6 +30,8 @@ git config --global user.name "$GH_NAME" > /dev/null 2>&1
 git init
 git remote add --fetch origin "$remote"
 
+echo "two"
+
 # switch into the the gh-pages branch
 if git rev-parse --verify origin/gh-pages > /dev/null 2>&1
 then
@@ -36,6 +42,8 @@ then
 else
     git checkout --orphan gh-pages
 fi
+
+echo "three"
 
 # copy over or recompile the new site
 cp -a "../${siteSource}/." .
@@ -54,5 +62,3 @@ rm -rf gh-pages-branch
 
 echo "Finished Deployment!"
 
-# From https://github.com/eldarlabs/ghpages-deploy-script/blob/master/scripts/deploy-ghpages.sh
-# Used with their MIT license https://github.com/eldarlabs/ghpages-deploy-script/blob/master/LICENSE
