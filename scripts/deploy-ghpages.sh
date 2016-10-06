@@ -13,7 +13,10 @@ echo "two"
 pwd
 echo "three"
 remote=$(git config remote.origin.url)
+echo "remote"
+echo remote
 echo "four"
+
 siteSource="$1"
 echo "five"
 if [ ! -d "$siteSource" ]
