@@ -21,15 +21,23 @@ then
     echo "Usage: $0 <site source dir>"
     exit 1
 fi
+echo "six"
 
 # make a directory to put the gp-pages branch
 mkdir gh-pages-branch
+echo "seven"
 cd gh-pages-branch
+echo "eight"
 # now lets setup a new repo so we can update the gh-pages branch
+echo "nine"
 git config --global user.email "$GH_EMAIL" > /dev/null 2>&1
+echo "ten"
 git config --global user.name "$GH_NAME" > /dev/null 2>&1
+echo "eleven"
 git init
+echo "twelve"
 git remote add --fetch origin "$remote"
+echo "thirteen"
 
 
 # switch into the the gh-pages branch
