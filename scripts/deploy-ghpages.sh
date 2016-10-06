@@ -8,13 +8,14 @@
 echo "one"
 set -e
 
+echo "two"
 # show where we are on the machine
 pwd
-
+echo "three"
 remote=$(git config remote.origin.url)
-
+echo "four"
 siteSource="$1"
-
+echo "five"
 if [ ! -d "$siteSource" ]
 then
     echo "Usage: $0 <site source dir>"
@@ -30,7 +31,6 @@ git config --global user.name "$GH_NAME" > /dev/null 2>&1
 git init
 git remote add --fetch origin "$remote"
 
-echo "two"
 
 # switch into the the gh-pages branch
 if git rev-parse --verify origin/gh-pages > /dev/null 2>&1
@@ -42,8 +42,6 @@ then
 else
     git checkout --orphan gh-pages
 fi
-
-echo "three"
 
 # copy over or recompile the new site
 cp -a "../${siteSource}/." .
