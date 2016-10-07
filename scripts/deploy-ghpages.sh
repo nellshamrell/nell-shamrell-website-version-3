@@ -11,13 +11,6 @@ set -e
 pwd
 remote=$(git config remote.origin.url)
 
-#siteSource="$1"
-#if [ ! -d "$siteSource" ]
-#then
-#    echo "Usage: $0 <site source dir>"
-#    exit 1
-#fi
-
 # make a directory to put the gp-pages branch
 mkdir gh-pages-branch
 cd gh-pages-branch
@@ -47,16 +40,11 @@ git add -A
 # now commit, ignoring branch gh-pages doesn't seem to work, so trying skip
 git commit --allow-empty -m "Deploy to GitHub pages [ci skip]"
 # and push, but send any output to /dev/null to hide anything sensitive
-echo "one"
 git push --force --quiet origin gh-pages
-echo "two"
 # go back to where we started and remove the gh-pages git repo we made and used
 # for deployment
-echo "three"
 cd ..
-echo "four"
 rm -rf gh-pages-branch
-echo "five"
 
 echo "Finished Deployment!"
 
